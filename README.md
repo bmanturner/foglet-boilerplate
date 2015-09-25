@@ -7,11 +7,12 @@
 Open two terminal windows.
 In the first window run:
 
-  make mongod
+  > make mongod
 
 In the second window run:
 
-  mongo
+  > mongo
+  > use foglet
   > var config = {_id: "foglet", members: [{_id: 0, host: "127.0.0.1:27017"}]}
   > rs.initiate(config)
 
@@ -19,12 +20,12 @@ In the second window run:
 
 If mongodb is not running:
 
-  make mongod
+  > make mongod
 
 In a new terminal window:
 
-  make start
+  > make start
 
 View Foglet Boilerplate in your browser by visiting:
 
-  localhost:5000
+  > localhost:5000
