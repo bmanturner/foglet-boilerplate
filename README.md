@@ -11,9 +11,9 @@ In the first window run:
 
 In the second window run:
 
-  > mongo
-  > use foglet
-  > var config = {_id: "foglet", members: [{_id: 0, host: "127.0.0.1:27017"}]}
+  > mongo  
+  > use foglet  
+  > var config = {_id: "foglet", members: [{_id: 0, host: "127.0.0.1:27017"}]}  
   > rs.initiate(config)
 
 ## Starting Foglet Boilerplate
