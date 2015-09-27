@@ -18,3 +18,7 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 underscore
 underscorestring:underscore.string
+react
+kadira:dochead
+kadira:react-layout
+kadira:flow-router-ssr
