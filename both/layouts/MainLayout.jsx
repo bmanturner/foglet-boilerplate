@@ -1,8 +1,14 @@
 MainLayout = React.createClass({
+  mixins: [ReactMeteorData],
+  getMeteorData() {
+    return {
+      currentRouteName: FlowRouter.getRouteName()
+    }
+  },
   render() {
 
     // BEGIN DOCHEAD https://github.com/kadirahq/meteor-dochead/
-    DocHead.setTitle(this.props.title);
+    DocHead.setTitle('Foglet | ' + this.data.currentRouteName);
     DocHead.addMeta({name: 'viewport', content: 'width=device-width, initial-scale=1.0, user-scalable=yes'});
     // icons and markup generated using http://realfavicongenerator.net/
     DocHead.addMeta({name: 'msapplication-TileColor', content: '#603cba'});
@@ -31,7 +37,7 @@ MainLayout = React.createClass({
         Header
       </header>
       <main>
-        Main
+        {this.props.main}
       </main>
       <footer>
         Footer

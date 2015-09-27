@@ -6,10 +6,19 @@ if (Meteor.isServer) {
 }
 
 FlowRouter.route('/', {
-  name: 'home',
+  name: 'Home',
   action: () => {
     ReactLayout.render(MainLayout, {
-      title: 'Foglet'
+      main: <a href="/test">Button</a>
+    });
+  }
+});
+
+FlowRouter.route('/test', {
+  name: 'Test',
+  action: () => {
+    ReactLayout.render(MainLayout, {
+      main: <a href="/">Button</a>
     });
   }
 });
