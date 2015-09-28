@@ -6,9 +6,22 @@ MainLayout = React.createClass({
     }
   },
   render() {
-
-    // BEGIN DOCHEAD https://github.com/kadirahq/meteor-dochead/
     DocHead.setTitle('Foglet | ' + this.data.currentRouteName);
+
+    return <div>
+      <header>
+        Header
+      </header>
+      <main>
+        {this.props.main}
+      </main>
+      <footer>
+        Footer
+      </footer>
+    </div>
+  },
+  componentWillMount: () => {
+    // BEGIN DOCHEAD https://github.com/kadirahq/meteor-dochead/
     DocHead.addMeta({name: 'viewport', content: 'width=device-width, initial-scale=1.0, user-scalable=yes'});
     // icons and markup generated using http://realfavicongenerator.net/
     DocHead.addMeta({name: 'msapplication-TileColor', content: '#603cba'});
@@ -31,17 +44,5 @@ MainLayout = React.createClass({
     DocHead.addLink({rel: 'icon', type: 'image/png', href: 'images/favicons/android-chrome-192x192.png?v=1', sizes: '192x192'});
     DocHead.addLink({rel: 'manifest', href: 'images/favicons/manifest.json'});
     // END DOCHEAD
-
-    return <div>
-      <header>
-        Header
-      </header>
-      <main>
-        {this.props.main}
-      </main>
-      <footer>
-        Footer
-      </footer>
-    </div>
   }
 });
