@@ -1,5 +1,3 @@
-var {RaisedButton} = mui;
-
 MainLayout = React.createClass({
   mixins: [ReactMeteorData],
   getMeteorData() {
@@ -12,7 +10,6 @@ MainLayout = React.createClass({
 
     return  <div className="container-fluid">
               {this.props.main()}
-              <RaisedButton label="Button" />
             </div>
   },
   componentWillMount: () => {

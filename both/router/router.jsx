@@ -9,7 +9,7 @@ FlowRouter.route('/', {
   name: 'Home',
   action: () => {
     ReactLayout.render(MainLayout, {
-      main() { return <div><a href="/test">Test</a><br /><a href="/login-required">Login Required</a></div>; }
+      main() { return <HomePage />; }
     });
   }
 });
