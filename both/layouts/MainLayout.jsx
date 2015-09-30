@@ -1,3 +1,6 @@
+// http://material-ui.com/#/customization/themes
+var {ThemeManager, LightRawTheme} = MUI.Styles;
+
 MainLayout = React.createClass({
   mixins: [ReactMeteorData],
   getMeteorData() {
@@ -8,8 +11,10 @@ MainLayout = React.createClass({
   render() {
     DocHead.setTitle('Foglet | ' + this.data.currentRouteName);
 
-    return  <div className="container-fluid">
-              {this.props.main()}
+    return  <div>
+              <div className="container-fluid">
+                {this.props.main()}
+              </div>
             </div>
   },
   componentWillMount: () => {
@@ -37,5 +42,13 @@ MainLayout = React.createClass({
     DocHead.addLink({rel: 'icon', type: 'image/png', href: 'images/favicons/android-chrome-192x192.png?v=1', sizes: '192x192'});
     DocHead.addLink({rel: 'manifest', href: 'images/favicons/manifest.json'});
     // END DOCHEAD
+  },
+  getChildContext: function() {
+    return {
+      muiTheme: ThemeManager.getMuiTheme(LightRawTheme)
+    };
+  },
+  childContextTypes: {
+    muiTheme: React.PropTypes.object
   }
 });

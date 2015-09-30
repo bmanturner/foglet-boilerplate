@@ -96,7 +96,7 @@ process.umask = function() { return 0; };
 // but for production individual components should be loaded instead
 // ex: RaisedButton = require('material-ui/lib/raised-button')
 //     AppBar = require('material-ui/lib/app-bar'), etc
-mui = require('material-ui');
+MUI = require('material-ui');
 
 },{"material-ui":37}],3:[function(require,module,exports){
 (function (process,global){
