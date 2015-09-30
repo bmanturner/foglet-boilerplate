@@ -12,6 +12,7 @@ MainLayout = React.createClass({
     DocHead.setTitle('Foglet | ' + this.data.currentRouteName);
 
     return  <div>
+              <FogletHeader />
               <div className="container-fluid">
                 {this.props.main()}
               </div>
