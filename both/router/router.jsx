@@ -37,7 +37,7 @@ FlowRouter.notFound = {
   name: '404 Not Found',
   action: () => {
     ReactLayout.render(MainLayout, {
-      main() { return '404' }
+      main() { return <p>404</p> }
     });
   }
 };

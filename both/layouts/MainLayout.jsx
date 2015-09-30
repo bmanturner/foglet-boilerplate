@@ -1,3 +1,5 @@
+var {RaisedButton} = mui;
+
 MainLayout = React.createClass({
   mixins: [ReactMeteorData],
   getMeteorData() {
@@ -8,17 +10,10 @@ MainLayout = React.createClass({
   render() {
     DocHead.setTitle('Foglet | ' + this.data.currentRouteName);
 
-    return <div>
-      <header>
-        Header
-      </header>
-      <main>
-        {this.props.main()}
-      </main>
-      <footer>
-        Footer
-      </footer>
-    </div>
+    return  <div className="container-fluid">
+              {this.props.main()}
+              <RaisedButton label="Button" />
+            </div>
   },
   componentWillMount: () => {
     // BEGIN DOCHEAD https://github.com/kadirahq/meteor-dochead/

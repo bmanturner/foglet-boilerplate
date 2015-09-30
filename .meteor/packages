@@ -23,3 +23,8 @@ kadira:dochead
 kadira:react-layout
 kadira:flow-router-ssr
 browser-policy
+meteorhacks:npm
+cosmos:browserify
+
+
+npm-container
