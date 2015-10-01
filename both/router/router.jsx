@@ -18,7 +18,7 @@ FlowRouter.route('/test', {
   name: 'Test',
   action: () => {
     ReactLayout.render(MainLayout, {
-      main() { return <a href="/">Home</a>; }
+      main() { return <p>tada</p>; }
     });
   }
 });
@@ -28,7 +28,7 @@ FlowRouter.route('/login-required', {
   triggersEnter: [loginRequired],
   action: () => {
     ReactLayout.render(MainLayout, {
-      main() { return <a href="/">Home</a>; }
+      main() { return <p>You shouldn't see me.</p>; }
     });
   }
 });

@@ -1,36 +1,33 @@
-var {RaisedButton,LeftNav,MenuItem} = MUI;
+var {AppBar, LeftNav} = MUI;
+
+// AppBar and LeftNav are about to receive a composability overhaul
+// I won't attempt making custom MenuItem components until then
+// [AppBar: https://github.com/callemall/material-ui/issues/773]
+// [LeftNav: https://github.com/callemall/material-ui/issues/413]
 
 FogletHeader = React.createClass({
   render() {
-    var menuItems = [
-      { route: 'get-started', text: 'Get Started' },
-      { route: 'customization', text: 'Customization' },
-      { route: 'components', text: 'Components' },
-      { type: MenuItem.Types.SUBHEADER, text: 'Resources' },
-      {
-         type: MenuItem.Types.LINK,
-         payload: 'https://github.com/callemall/material-ui',
-         text: 'GitHub'
-      },
-      {
-         text: 'Disabled',
-         disabled: true
-      },
-      {
-         type: MenuItem.Types.LINK,
-         payload: 'https://www.google.com',
-         text: 'Disabled Link',
-         disabled: true
-      },
+    let menuItems = [
+      { route: '/test', text: 'Test' },
+      { route: '/login-required', text: 'Login Required' },
     ];
-    return  <div>
-        <LeftNav ref="leftNav" docked={false} menuItems={menuItems} />
-        <RaisedButton
-          label="Open Nav"
-          onClick={this._openLeftNav} />
+    return  (
+      <div>
+        <AppBar
+          title="Foglet"
+          onLeftIconButtonTouchTap={this._toggleLeftNav} />
+        <LeftNav
+          ref="leftNav"
+          docked={false}
+          menuItems={menuItems}
+          onChange={this._handleNavMenuItem} />
       </div>
+    );
   },
-  _openLeftNav() {
+  _toggleLeftNav() {
     this.refs.leftNav.toggle();
   },
+  _handleNavMenuItem(e, selectedIndex, menuItem) {
+    FlowRouter.go(menuItem.route);
+  }
 });

@@ -11,12 +11,14 @@ MainLayout = React.createClass({
   render() {
     DocHead.setTitle('Foglet | ' + this.data.currentRouteName);
 
-    return  <div>
-              <FogletHeader />
-              <div className="container-fluid">
-                {this.props.main()}
-              </div>
-            </div>
+    return  (
+      <div>
+        <FogletHeader />
+        <div className="container-fluid">
+          {this.props.main()}
+        </div>
+      </div>
+    );
   },
   componentWillMount: () => {
     // BEGIN DOCHEAD https://github.com/kadirahq/meteor-dochead/
@@ -44,7 +46,7 @@ MainLayout = React.createClass({
     DocHead.addLink({rel: 'manifest', href: 'images/favicons/manifest.json'});
     // END DOCHEAD
   },
-  getChildContext: function() {
+  getChildContext: () => {
     return {
       muiTheme: ThemeManager.getMuiTheme(LightRawTheme)
     };
