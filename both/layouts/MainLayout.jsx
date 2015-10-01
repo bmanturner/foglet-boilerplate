@@ -28,7 +28,7 @@ MainLayout = React.createClass({
     DocHead.addMeta({name: 'msapplication-TileColor', content: '#603cba'});
     DocHead.addMeta({name: 'msapplication-TileImage', content: 'images/favicons/mstile-144x144.png?v=1'});
     DocHead.addMeta({name: 'theme-color', content: '#000000'});
-    DocHead.addLink({rel: 'icon', href: 'images/favicons/favicon.ico?v=1'});
+    DocHead.addLink({rel: 'shortcut icon', href: 'images/favicons/favicon.ico?v=1'});
     DocHead.addLink({rel: 'apple-touch-icon', type: '57x57', href: 'images/favicons/apple-touch-icon-57x57.png?v=1'});
     DocHead.addLink({rel: 'apple-touch-icon', type: '60x60', href: 'images/favicons/apple-touch-icon-60x60.png?v=1'});
     DocHead.addLink({rel: 'apple-touch-icon', type: '72x72', href: 'images/favicons/apple-touch-icon-72x72.png?v=1'});
