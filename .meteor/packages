@@ -16,15 +16,10 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-underscore
-underscorestring:underscore.string
 react
 kadira:dochead
 kadira:react-layout
 kadira:flow-router-ssr
 browser-policy
-meteorhacks:npm
-cosmos:browserify
 
 
-npm-container
