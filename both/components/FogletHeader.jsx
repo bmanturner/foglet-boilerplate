@@ -1,8 +1,8 @@
 FogletHeader = React.createClass({
   render() {
     return  (
-      <div>
-      </div>
+      <nav className="light-blue lighten-1" role="navigation">
+      </nav>
     );
   }
 });
