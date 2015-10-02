@@ -1910,7 +1910,6 @@ input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
   -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box; }
 
@@ -2353,7 +2352,6 @@ span.badge {
   color: #757575;
   position: absolute;
   right: 15px;
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
   span.badge.new {
@@ -2640,7 +2638,6 @@ nav ul a span.badge {
     clear: both; }
   .row .col {
     float: left;
-    -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0 0.75rem; }
@@ -3704,7 +3701,6 @@ a.waves-effect .waves-ripple {
 .collapsible-body {
   display: none;
   border-bottom: 1px solid #ddd;
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
   .collapsible-body p {
@@ -3845,7 +3841,6 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
   margin: 0 0 15px 0;
   padding: 0;
   box-shadow: none;
-  -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   transition: all .3s; }
@@ -5273,10 +5268,8 @@ select {
     border: 1px solid #777777;
     border-top-color: #898989;
     border-bottom-width: 0;
-    -webkit-border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
     border-radius: 5px 5px 0 0;
-    -webkit-box-shadow: 0 12px 36px 16px rgba(0, 0, 0, 0.24);
     -moz-box-shadow: 0 12px 36px 16px rgba(0, 0, 0, 0.24);
     box-shadow: 0 12px 36px 16px rgba(0, 0, 0, 0.24); } }
 
