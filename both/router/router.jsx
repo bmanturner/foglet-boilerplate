@@ -18,7 +18,7 @@ FlowRouter.route('/test', {
   name: 'Test',
   action: () => {
     ReactLayout.render(MainLayout, {
-      main() { return <p>tada</p>; }
+      main() { return <a href="/">home</a>; }
     });
   }
 });
