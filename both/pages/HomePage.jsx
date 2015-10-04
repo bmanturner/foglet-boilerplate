@@ -3,7 +3,188 @@ HomePage = React.createClass({
     return  (
       <div className="container">
         <div className="section">
-          <h2 className="header materialize-theme-text text-lighten-1">Typography</h2>
+          <h2 className="header theme-color-text text-lighten-1">Forms</h2>
+          <div className="card hoverable">
+            <div className="card-content">
+              <span className="card-title black-text">Normal</span>
+              <div className="row">
+                <form className="col s12">
+                  <div className="row">
+                    <div className="input-field col l6">
+                      <input placeholder="Placeholder" id="first_name" type="text" className="validate" />
+                      <label htmlFor="first_name">First Name</label>
+                    </div>
+                    <div className="input-field col l6">
+                      <input id="last_name" type="text" className="validate" />
+                      <label htmlFor="last_name">Last Name</label>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="input-field col s12">
+                      <input disabled value="I am not editable" id="disabled" type="text" className="validate" />
+                      <label htmlFor="disabled">Disabled</label>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="input-field col l6">
+                      <input id="password" type="password" className="validate" />
+                      <label htmlFor="password">Password</label>
+                    </div>
+                    <div className="input-field col l6">
+                      <input id="email" type="email" className="validate" />
+                      <label htmlFor="email">Email</label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div className="card hoverable">
+            <div className="card-content">
+              <span className="card-title black-text">With Icons</span>
+              <div className="row">
+                <form className="col s12">
+                  <div className="row">
+                    <div className="input-field col s6">
+                      <i className="material-icons prefix">account_circle</i>
+                      <input id="icon_prefix" type="text" className="validate" />
+                      <label htmlFor="icon_prefix">First Name</label>
+                    </div>
+                    <div className="input-field col s6">
+                      <i className="material-icons prefix">phone</i>
+                      <input id="icon_telephone" type="tel" className="validate" />
+                      <label htmlFor="icon_telephone">Telephone</label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div className="card hoverable">
+            <div className="card-content">
+              <span className="card-title black-text">Validation</span>
+              <div className="row">
+                <form className="col s12">
+                  <div className="row">
+                    <div className="input-field col s12">
+                      <input id="email" type="email" className="validate" />
+                      <label htmlFor="email" data-error="Not a valid email address" data-success="You got it, dude">Email</label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div className="card hoverable">
+            <div className="card-content">
+              <span className="card-title black-text">Textarea</span>
+              <div className="row">
+                <form className="col s12">
+                  <div className="row">
+                    <div className="input-field col s12">
+                      <textarea id="textarea1" className="materialize-textarea"></textarea>
+                      <label htmlFor="textarea1">Textarea</label>
+                    </div>
+                  </div>
+                </form>
+                <form className="col s12">
+                  <div className="row">
+                    <div className="input-field col s12">
+                      <i className="material-icons prefix">mode_edit</i>
+                      <textarea id="icon_prefix2" className="materialize-textarea"></textarea>
+                      <label htmlFor="icon_prefix2">Message</label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div className="card hoverable">
+            <div className="card-content">
+              <span className="card-title black-text">Radio Buttons</span>
+              <form>
+                <p>
+                  <input name="group1" type="radio" id="test1" />
+                  <label htmlFor="test1">Option 1</label>
+                </p>
+                <p>
+                  <input name="group1" type="radio" id="test2" />
+                  <label htmlFor="test2">Option 2</label>
+                </p>
+                <p>
+                  <input className="with-gap" name="group1" type="radio" id="test3"  />
+                  <label htmlFor="test3">Option 3 (alt style)</label>
+                </p>
+                  <p>
+                    <input name="group1" type="radio" id="test4" disabled="disabled" />
+                    <label htmlFor="test4">Brown</label>
+                </p>
+              </form>
+            </div>
+          </div>
+          <div className="card hoverable">
+            <div className="card-content">
+              <span className="card-title black-text">Checkboxes</span>
+              <form action="#">
+                <p>
+                  <input type="checkbox" id="test5" />
+                  <label htmlFor="test5">Option 1</label>
+                </p>
+                <p>
+                  <input type="checkbox" id="test6" defaultChecked />
+                  <label htmlFor="test6">Option 2</label>
+                </p>
+                <p>
+                  <input type="checkbox" className="filled-in" id="filled-in-box" defaultChecked />
+                  <label htmlFor="filled-in-box">Option 3</label>
+                </p>
+                <p>
+                  <input type="checkbox" id="test7" defaultChecked disabled="disabled" />
+                  <label htmlFor="test7">Option 4 (disabled)</label>
+                </p>
+                  <p>
+                    <input type="checkbox" id="test8" disabled="disabled" />
+                    <label htmlFor="test8">Option 5 (disabled)</label>
+                </p>
+              </form>
+            </div>
+          </div>
+          <div className="card hoverable">
+            <div className="card-content">
+              <span className="card-title black-text">Switches</span>
+              <div className="switch">
+                <label>
+                  Off
+                  <input type="checkbox" />
+                  <span className="lever"></span>
+                  On
+                </label>
+              </div>
+              <br />
+              <div className="switch">
+                <label>
+                  Off
+                  <input disabled type="checkbox" />
+                  <span className="lever"></span>
+                  On
+                </label>
+              </div>
+            </div>
+          </div>
+          <div className="card hoverable">
+            <div className="card-content">
+              <span className="card-title black-text">Range</span>
+              <form>
+                <p className="range-field">
+                  <input type="range" id="test5" min="0" max="100" />
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div className="divider"></div>
+        <div className="section">
+          <h2 className="header theme-color-text text-lighten-1">Typography</h2>
           <p className="caption flow-text">The standard font Material Design uses is Roboto.</p>
           <div className="card hoverable">
             <div className="card-content">
@@ -21,7 +202,7 @@ HomePage = React.createClass({
         </div>
         <div className="divider"></div>
         <div className="section">
-          <h2 className="header materialize-theme-text text-lighten-1">Tables</h2>
+          <h2 className="header theme-color-text text-lighten-1">Tables</h2>
           <div className="card hoverable">
             <div className="card-content">
               <span className="card-title black-text">Borderless</span>
@@ -211,7 +392,7 @@ HomePage = React.createClass({
         </div>
         <div className="divider"></div>
         <div className="section">
-          <h2 className="header materialize-theme-text text-lighten-1">Shadow</h2>
+          <h2 className="header theme-color-text text-lighten-1">Shadow</h2>
           <div className="card hoverable">
             <div className="card-content">
               <div className="row">
@@ -239,7 +420,7 @@ HomePage = React.createClass({
         </div>
         <div className="divider"></div>
         <div className="section">
-          <h2 className="header materialize-theme-text text-lighten-1">Dropdown</h2>
+          <h2 className="header theme-color-text text-lighten-1">Dropdown</h2>
             <div className="row">
               <div className="col m6"><a className='dropdown-button btn btn-block' href='#' data-activates='dropdown1' data-constrainwidth='false'>Drop Me!</a></div>
               <div className="col m6"><a className='dropdown-button btn btn-block' href='#' data-activates='dropdown2'>Drop Me!</a></div>
@@ -259,7 +440,7 @@ HomePage = React.createClass({
         </div>
         <div className="divider"></div>
         <div className="section">
-          <h2 className="header materialize-theme-text text-lighten-1">Grid</h2>
+          <h2 className="header theme-color-text text-lighten-1">Grid</h2>
           <div className="card hoverable">
             <div className="card-content">
               <div className="row">
@@ -285,7 +466,7 @@ HomePage = React.createClass({
         </div>
         <div className="divider"></div>
         <div className="section">
-          <h2 className="header materialize-theme-text text-lighten-1">Collapsible</h2>
+          <h2 className="header theme-color-text text-lighten-1">Collapsible</h2>
           <div className="card hoverable">
             <div className="card-content">
               <span className="card-title black-text">Normal</span>
@@ -327,7 +508,7 @@ HomePage = React.createClass({
         </div>
         <div className="divider"></div>
         <div className="section">
-          <h2 className="header materialize-theme-text text-lighten-1">Tooltips</h2>
+          <h2 className="header theme-color-text text-lighten-1">Tooltips</h2>
           <div className="card hoverable">
             <div className="card-content">
               <div className="row">
@@ -341,7 +522,7 @@ HomePage = React.createClass({
         </div>
         <div className="divider"></div>
         <div className="section">
-          <h2 className="header materialize-theme-text text-lighten-1">Collection</h2>
+          <h2 className="header theme-color-text text-lighten-1">Collection</h2>
           <div className="card hoverable">
             <div className="card-content">
               <span className="card-title black-text">Basic</span>
@@ -429,7 +610,7 @@ HomePage = React.createClass({
         </div>
         <div className="divider"></div>
         <div className="section">
-          <h2 className="header materialize-theme-text text-lighten-1">Chips</h2>
+          <h2 className="header theme-color-text text-lighten-1">Chips</h2>
           <div className="card hoverable">
             <div className="card-content">
               <div className="chip teal lighten-2 z-depth-1">
@@ -444,7 +625,7 @@ HomePage = React.createClass({
         </div>
         <div className="divider"></div>
         <div className="section">
-          <h2 className="header materialize-theme-text text-lighten-1">Pagination</h2>
+          <h2 className="header theme-color-text text-lighten-1">Pagination</h2>
           <div className="card hoverable">
             <div className="card-content">
               <ul className="pagination">
@@ -461,7 +642,7 @@ HomePage = React.createClass({
         </div>
         <div className="divider"></div>
         <div className="section">
-          <h2 className="header materialize-theme-text text-lighten-1">Tabs</h2>
+          <h2 className="header theme-color-text text-lighten-1">Tabs</h2>
           <div className="card hoverable">
             <div className="card-content">
               <div className="row">
@@ -480,6 +661,196 @@ HomePage = React.createClass({
               </div>
             </div>
           </div>
+        </div>
+        <div className="divider"></div>
+        <div className="section">
+          <h2 className="header theme-color-text text-lighten-1">Loading Indicators</h2>
+          <div className="card hoverable">
+            <div className="card-content">
+              <span className="card-title black-text">Determinate</span>
+              <div className="progress">
+                <div className="determinate" style={{width: '70%'}}></div>
+              </div>
+              <span className="card-title black-text">Indeterminate</span>
+              <div className="progress">
+                <div className="indeterminate"></div>
+              </div>
+              <span className="card-title black-text">Spinners</span>
+              <div className="row">
+                <div className="col m3 center-align">
+                  <div className="preloader-wrapper big active">
+                    <div className="spinner-layer spinner-blue-only">
+                      <div className="circle-clipper left">
+                        <div className="circle"></div>
+                      </div><div className="gap-patch">
+                        <div className="circle"></div>
+                      </div><div className="circle-clipper right">
+                        <div className="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col m3 center-align">
+                  <div className="preloader-wrapper big active">
+                    <div className="spinner-layer spinner-red-only">
+                      <div className="circle-clipper left">
+                        <div className="circle"></div>
+                      </div><div className="gap-patch">
+                        <div className="circle"></div>
+                      </div><div className="circle-clipper right">
+                        <div className="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col m3 center-align">
+                  <div className="preloader-wrapper big active">
+                    <div className="spinner-layer spinner-green-only">
+                      <div className="circle-clipper left">
+                        <div className="circle"></div>
+                      </div><div className="gap-patch">
+                        <div className="circle"></div>
+                      </div><div className="circle-clipper right">
+                        <div className="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col m3 center-align">
+                  <div className="preloader-wrapper big active">
+                    <div className="spinner-layer spinner-yellow-only">
+                      <div className="circle-clipper left">
+                        <div className="circle"></div>
+                      </div><div className="gap-patch">
+                        <div className="circle"></div>
+                      </div><div className="circle-clipper right">
+                        <div className="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <span className="card-title black-text">Color-changing</span>
+                <div className="row">
+                  <div className="col s12 center-align">
+                    <div className="preloader-wrapper big active">
+                      <div className="spinner-layer spinner-blue">
+                        <div className="circle-clipper left">
+                          <div className="circle"></div>
+                        </div><div className="gap-patch">
+                          <div className="circle"></div>
+                        </div><div className="circle-clipper right">
+                          <div className="circle"></div>
+                        </div>
+                      </div>
+                      <div className="spinner-layer spinner-red">
+                        <div className="circle-clipper left">
+                          <div className="circle"></div>
+                        </div><div className="gap-patch">
+                          <div className="circle"></div>
+                        </div><div className="circle-clipper right">
+                          <div className="circle"></div>
+                        </div>
+                      </div>
+                      <div className="spinner-layer spinner-yellow">
+                        <div className="circle-clipper left">
+                          <div className="circle"></div>
+                        </div><div className="gap-patch">
+                          <div className="circle"></div>
+                        </div><div className="circle-clipper right">
+                          <div className="circle"></div>
+                        </div>
+                      </div>
+                      <div className="spinner-layer spinner-green">
+                        <div className="circle-clipper left">
+                          <div className="circle"></div>
+                        </div><div className="gap-patch">
+                          <div className="circle"></div>
+                        </div><div className="circle-clipper right">
+                          <div className="circle"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="divider"></div>
+        <div className="section">
+          <h2 className="header theme-color-text text-lighten-1">NavBars</h2>
+          <nav>
+            <div className="nav-wrapper">
+              <a href="#" className="brand-logo">Logo</a>
+              <ul id="nav-mobile" className="right hide-on-med-and-down">
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+              </ul>
+            </div>
+          </nav>
+          <br />
+          <nav>
+            <div className="nav-wrapper">
+              <a href="#" className="brand-logo right">Logo</a>
+              <ul id="nav-mobile" className="left hide-on-med-and-down">
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+              </ul>
+            </div>
+          </nav>
+          <br />
+          <nav>
+            <div className="nav-wrapper">
+              <a href="#" className="brand-logo center">Logo</a>
+              <ul id="nav-mobile" className="left hide-on-med-and-down">
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+              </ul>
+            </div>
+          </nav>
+          <br />
+          <nav>
+            <div className="nav-wrapper">
+              <a href="#!" className="brand-logo">Logo</a>
+              <ul className="right hide-on-med-and-down">
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li className="active"><a href="#">Link 3</a></li>
+              </ul>
+            </div>
+          </nav>
+          <br />
+          <ul id="nav-dropdown1" className="dropdown-content">
+            <li><a href="#!">one</a></li>
+            <li><a href="#!">two</a></li>
+            <li className="divider"></li>
+            <li><a href="#!">three</a></li>
+          </ul>
+          <nav>
+            <div className="nav-wrapper">
+              <a href="#!" className="brand-logo">Logo</a>
+              <ul className="right hide-on-med-and-down">
+                <li><a href="#.html">Sass</a></li>
+                <li><a href="#.html">Components</a></li>
+                <li><a className="dropdown-button" href="#" data-activates="nav-dropdown1">Dropdown<i className="material-icons right">arrow_drop_down</i></a></li>
+              </ul>
+            </div>
+          </nav>
+          <br />
+          <nav>
+            <div className="nav-wrapper">
+              <form>
+                <div className="input-field">
+                  <input id="search" type="search" required />
+                  <label htmlFor="search"><i className="material-icons">search</i></label>
+                  <i className="material-icons">close</i>
+                </div>
+              </form>
+            </div>
+          </nav>
         </div>
       </div>
     );
