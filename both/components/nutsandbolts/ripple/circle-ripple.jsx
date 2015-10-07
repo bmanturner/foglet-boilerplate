@@ -1,7 +1,5 @@
 let PureRenderMixin = React.addons.PureRenderMixin;
-let AutoPrefix = Modules.AutoPrefix;
-let Transitions = Modules.Transitions;
-let StylePropableMixin = Modules.StylePropable;
+let StylePropableMixin = StylePropable;
 
 CircleRipple = React.createClass({
   mixins: [PureRenderMixin, StylePropableMixin],

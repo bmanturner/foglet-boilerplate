@@ -1,8 +1,5 @@
 let PureRenderMixin = React.addons.PureRenderMixin;
-let StylePropableMixin = Modules.StylePropable;
-let AutoPrefix = Modules.AutoPrefix;
-let Transitions = Modules.Transitions;
-let ScaleInTransitionGroup = Modules.ScaleInTransitionGroup;
+let StylePropableMixin = StylePropable;
 
 let pulsateDuration = 750;
 
@@ -17,6 +14,7 @@ FocusRipple = React.createClass({
   getDefaultProps() {
     return {
       color: '#000000',
+      opacity: 0.16
     };
   },
   componentDidMount() {

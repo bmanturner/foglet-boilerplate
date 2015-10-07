@@ -14,11 +14,11 @@ FlowRouter.route('/', {
   }
 });
 
-FlowRouter.route('/test', {
-  name: 'Test',
+FlowRouter.route('/demo', {
+  name: 'Demo',
   action: () => {
     ReactLayout.render(MainLayout, {
-      main() { return <a href="/">home</a>; }
+      main() { return <DemoPage />; }
     });
   }
 });

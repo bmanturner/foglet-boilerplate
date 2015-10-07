@@ -20,7 +20,6 @@ MainLayout = React.createClass({
   componentWillMount: () => {
     // BEGIN DOCHEAD https://github.com/kadirahq/meteor-dochead/
     DocHead.addMeta({name: 'viewport', content: 'width=device-width, initial-scale=1.0, user-scalable=yes'});
-    //DocHead.addLink({rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons'});
     // icons and markup generated using http://realfavicongenerator.net/
     DocHead.addMeta({name: 'msapplication-TileColor', content: '#603cba'});
     DocHead.addMeta({name: 'msapplication-TileImage', content: 'images/favicons/mstile-144x144.png'});

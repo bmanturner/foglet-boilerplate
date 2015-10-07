@@ -1,7 +1,8 @@
 let PureRenderMixin = React.addons.PureRenderMixin;
 let ReactTransitionGroup = React.addons.TransitionGroup;
-let StylePropableMixin = Modules.StylePropable;
-let ImmutabilityHelper = Modules.ImmutabilityHelper;
+let StylePropableMixin = StylePropable;
+
+injectTapEventPlugin();
 
 TouchRipple = React.createClass({
   mixins: [PureRenderMixin, StylePropableMixin],
@@ -9,6 +10,12 @@ TouchRipple = React.createClass({
     centerRipple: React.PropTypes.bool,
     color: React.PropTypes.string,
     opacity: React.PropTypes.number,
+  },
+  getDefaultProps() {
+    return {
+      color: '#000000',
+      opacity: 0.16
+    };
   },
   getInitialState() {
     return {
@@ -20,7 +27,6 @@ TouchRipple = React.createClass({
       ripples: [],
     };
   },
-
   render() {
     const {
       children,
@@ -49,7 +55,6 @@ TouchRipple = React.createClass({
         </ReactTransitionGroup>
       );
     }
-
     return (
       <div
         onMouseUp={this._handleMouseUp}
@@ -62,7 +67,6 @@ TouchRipple = React.createClass({
       </div>
     );
   },
-
   start(e, isRippleTouchGenerated) {
     let ripples = this.state.ripples;
 
@@ -73,7 +77,6 @@ TouchRipple = React.createClass({
         if (ripples[i].props.touchGenerated) return;
       }
     }
-
     //Add a ripple to the ripples array
     ripples = ImmutabilityHelper.push(ripples, (
       <CircleRipple
@@ -100,11 +103,9 @@ TouchRipple = React.createClass({
     //only listen to left clicks
     if (e.button === 0) this.start(e, false);
   },
-
   _handleMouseUp() {
     this.end();
   },
-
   _handleMouseLeave() {
     this.end();
   },
@@ -112,7 +113,6 @@ TouchRipple = React.createClass({
   _handleTouchStart(e) {
     this.start(e, true);
   },
-
   _handleTouchEnd() {
     this.end();
   },
