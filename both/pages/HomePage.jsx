@@ -3,7 +3,7 @@ HomePage = React.createClass({
     return  (
       <div className="container">
         <div className="section">
-          <RaisedButton label="Button" />
+          <RaisedButton label="Button"><i className="material-icons left">android</i></RaisedButton>
         </div>
       </div>
     );

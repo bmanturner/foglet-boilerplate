@@ -38,20 +38,25 @@ RaisedButton = React.createClass({
       ...other } = this.props;
 
     let labelElement;
-    if (label) {
-      const labelStyle = {
-        position: 'relative',
-        margin: 0,
-        padding: '0px 2rem',
-        userSelect: 'none',
-        lineHeight: large ? '54px' : '36px',
-      };
-      labelElement = (
-        <span style={this.mergeAndPrefix(labelStyle)}>
-          {label}
-        </span>
-      );
-    }
+    const labelStyle = {
+      position: 'relative',
+      padding: 0,
+      verticalAlign: 'middle',
+      userSelect: 'none',
+      lineHeight: large ? '54px' : '36px',
+    };
+    labelElement = (
+      <span style={this.mergeAndPrefix(labelStyle)}>
+        {label}
+        {this.props.children}
+      </span>
+    );
+    let rootStyle = {
+      backgroundColor: 'none',
+      display: 'inline-block',
+      minWidth: fullWidth ? '100%' : '',
+      transition: Transitions.easeOut()
+    };
     let buttonEventHandlers = disabled ? null : {
       onMouseDown: this._handleMouseDown,
       onMouseUp: this._handleMouseUp,
@@ -64,7 +69,7 @@ RaisedButton = React.createClass({
     let containerStyle = {
       position: 'relative',
       height: '100%',
-      width: fullWidth ? '100%' : '',
+      width: '100%',
       padding: 0,
       overflow: 'hidden',
       // This is need so that ripples do not bleed
@@ -74,23 +79,27 @@ RaisedButton = React.createClass({
       transform: 'translate3d(0, 0, 0)',
     };
     let overlayStyle = {
+      top: 0,
+      padding: '0.5rem 1.5rem',
+      transition: Transitions.easeOut(),
       backgroundColor: this.state.hovered ? 'rgba(255, 255, 255, 0.1)' : 'transparent'
     };
     let classString = large ? 'btn-large' : 'btn';
     if (disabled) classString += ' disabled';
     return (
-      <ButtonHelper
-        {...other}
-        {...buttonEventHandlers}
-        className={classString}
-        ref="container"
-        disabled={disabled}
-        style={this.mergeAndPrefix(containerStyle)}>
-          <div ref="overlay" style={this.mergeAndPrefix(overlayStyle)}>
+      <div style={this.mergeAndPrefix(rootStyle, this.props.style)}>
+        <ButtonHelper
+          {...other}
+          {...buttonEventHandlers}
+          className={classString}
+          ref="container"
+          disabled={disabled}
+          style={this.mergeAndPrefix(containerStyle)}>
+            <div ref="overlay" style={this.mergeAndPrefix(overlayStyle)}>
               {labelElement}
-              {this.props.children}
-          </div>
-      </ButtonHelper>
+            </div>
+        </ButtonHelper>
+      </div>
     );
   },
   _handleMouseDown(e) {
