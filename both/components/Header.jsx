@@ -1,4 +1,4 @@
-HomePage = React.createClass({
+Header = React.createClass({
   contextTypes: {
     muiTheme: React.PropTypes.object,
   },
@@ -22,9 +22,7 @@ HomePage = React.createClass({
   },
   render() {
     return  (
-      <div className="container-fluid">
-
-      </div>
+      <div></div>
     );
   }
 });

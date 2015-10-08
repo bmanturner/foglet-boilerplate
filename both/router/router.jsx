@@ -14,15 +14,6 @@ FlowRouter.route('/', {
   }
 });
 
-FlowRouter.route('/demo', {
-  name: 'Demo',
-  action: () => {
-    ReactLayout.render(MainLayout, {
-      main() { return <DemoPage />; }
-    });
-  }
-});
-
 FlowRouter.route('/login-required', {
   name: 'Login Required',
   triggersEnter: [loginRequired],

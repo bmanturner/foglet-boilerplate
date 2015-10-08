@@ -1,3 +1,26 @@
+Meteor.startup(() => {
+  injectTapEventPlugin();
+});
+
+// https://github.com/callemall/material-ui/blob/master/src/styles/theme-manager.js
+const fogletTheme = {
+  spacing: Spacing,
+  fontFamily: 'Roboto, sans-serif',
+  palette: {
+    primary1Color: Colors.lightGreen500,
+    primary2Color: Colors.lightGreen700,
+    primary3Color: Colors.lightBlack,
+    accent1Color: Colors.cyan500,
+    accent2Color: Colors.grey100,
+    accent3Color: Colors.grey500,
+    textColor: Colors.darkBlack,
+    alternateTextColor: Colors.white,
+    canvasColor: Colors.white,
+    borderColor: Colors.grey300,
+    disabledColor: ColorManipulator.fade(Colors.darkBlack, 0.3),
+  }
+};
+
 MainLayout = React.createClass({
   mixins: [ReactMeteorData],
   getMeteorData() {
@@ -5,15 +28,29 @@ MainLayout = React.createClass({
       currentRouteName: FlowRouter.getRouteName()
     }
   },
+  //the key passed through context must be called "muiTheme"
+  childContextTypes : {
+    muiTheme: React.PropTypes.object,
+  },
+  getChildContext() {
+    return {
+      muiTheme: ThemeManager.getMuiTheme(fogletTheme),
+    };
+  },
   render() {
     DocHead.setTitle('Foglet | ' + this.data.currentRouteName);
 
     return  (
       <div>
-        <FogletHeader />
+        <header>
+          <Header />
+        </header>
         <main>
           {this.props.main()}
         </main>
+        <footer>
+          <Footer />
+        </footer>
       </div>
     );
   },
@@ -21,9 +58,9 @@ MainLayout = React.createClass({
     // BEGIN DOCHEAD https://github.com/kadirahq/meteor-dochead/
     DocHead.addMeta({name: 'viewport', content: 'width=device-width, initial-scale=1.0, user-scalable=yes'});
     // icons and markup generated using http://realfavicongenerator.net/
-    DocHead.addMeta({name: 'msapplication-TileColor', content: '#603cba'});
+    DocHead.addMeta({name: 'msapplication-TileColor', content: fogletTheme.palette.primary2Color});
     DocHead.addMeta({name: 'msapplication-TileImage', content: 'images/favicons/mstile-144x144.png'});
-    DocHead.addMeta({name: 'theme-color', content: '#000000'});
+    DocHead.addMeta({name: 'theme-color', content: fogletTheme.palette.primary2Color});
     DocHead.addLink({rel: 'shortcut icon', href: 'images/favicons/favicon.ico'});
     DocHead.addLink({rel: 'apple-touch-icon', type: '57x57', href: 'images/favicons/apple-touch-icon-57x57.png'});
     DocHead.addLink({rel: 'apple-touch-icon', type: '60x60', href: 'images/favicons/apple-touch-icon-60x60.png'});
