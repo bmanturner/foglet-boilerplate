@@ -58,9 +58,9 @@ MainLayout = React.createClass({
     // BEGIN DOCHEAD https://github.com/kadirahq/meteor-dochead/
     DocHead.addMeta({name: 'viewport', content: 'width=device-width, initial-scale=1.0, user-scalable=yes'});
     // icons and markup generated using http://realfavicongenerator.net/
-    DocHead.addMeta({name: 'msapplication-TileColor', content: fogletTheme.palette.primary2Color});
+    DocHead.addMeta({name: 'msapplication-TileColor', content: fogletTheme.palette.primary1Color});
     DocHead.addMeta({name: 'msapplication-TileImage', content: 'images/favicons/mstile-144x144.png'});
-    DocHead.addMeta({name: 'theme-color', content: fogletTheme.palette.primary2Color});
+    DocHead.addMeta({name: 'theme-color', content: fogletTheme.palette.primary1Color});
     DocHead.addLink({rel: 'shortcut icon', href: 'images/favicons/favicon.ico'});
     DocHead.addLink({rel: 'apple-touch-icon', type: '57x57', href: 'images/favicons/apple-touch-icon-57x57.png'});
     DocHead.addLink({rel: 'apple-touch-icon', type: '60x60', href: 'images/favicons/apple-touch-icon-60x60.png'});
