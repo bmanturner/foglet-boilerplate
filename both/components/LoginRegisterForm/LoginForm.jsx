@@ -1,4 +1,4 @@
-HomePage = React.createClass({
+LoginForm = React.createClass({
   contextTypes: {
     muiTheme: React.PropTypes.object,
   },
@@ -21,14 +21,8 @@ HomePage = React.createClass({
     this.setState({ muiTheme: newMuiTheme });
   },
   render() {
-    return  (
-      <div className="container-fluid">
-        <div className="row center-xs">
-          <div className="col-xs-12 col-sm-8 col-md-6">
-            <LoginRegisterForm />
-          </div>
-        </div>
-      </div>
-    );
+    return (<CardText>
+      <RaisedButton label="Button" fullWidth={true} />
+    </CardText>);
   }
 });
