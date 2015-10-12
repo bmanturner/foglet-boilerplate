@@ -27,3 +27,6 @@ cosmos:browserify
 
 
 npm-container
+check
+accounts-base
+accounts-password
