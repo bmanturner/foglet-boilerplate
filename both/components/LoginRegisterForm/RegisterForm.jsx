@@ -78,6 +78,7 @@ RegisterForm = React.createClass({
   },
   _validateUsername() {
     var username = this.refs.username.getValue();
+    if (username.length === 0) return;
     if (username.length < 3) {
       this.setState({ usernameErrTxt: 'Must be at least 3 characters'});
     } else {
@@ -94,6 +95,7 @@ RegisterForm = React.createClass({
   },
   _validateEmail() {
     var email = this.refs.email.getValue();
+    if (email.length === 0) return;
     if (email && email.indexOf('@') !== -1) {
       Meteor.call('doesEmailExist', email, (err, res) => {
         if (res)
