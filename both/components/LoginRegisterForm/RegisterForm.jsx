@@ -17,7 +17,9 @@ RegisterForm = React.createClass({
       emailErrTxt: null,
       verifyEmailErrTxt: null,
       passwordErrTxt: null,
-      verifyPasswordErrTxt: null
+      verifyPasswordErrTxt: null,
+      snackbarMsg: ' ',
+      isRegistering: false
     };
   },
   componentWillReceiveProps(nextProps, nextContext) {
@@ -33,8 +35,14 @@ RegisterForm = React.createClass({
       emailErrTxt,
       verifyEmailErrTxt,
       passwordErrTxt,
-      verifyPasswordErrTxt
+      verifyPasswordErrTxt,
+      snackbarMsg,
+      isRegistering
     } = this.state;
+
+    let disableButton;
+    if (isRegistering || usernameErrTxt || emailErrTxt || verifyEmailErrTxt || passwordErrTxt || verifyPasswordErrTxt)
+      disableButton = true;
 
     return (<div>
         <CardText>
@@ -57,24 +65,43 @@ RegisterForm = React.createClass({
         </div>
       </CardText>
       <CardActions>
-        <RaisedButton ref="submitBtn" label="Register" onClick={this._registerUser} fullWidth={true} primary={true} />
+        <RaisedButton ref="submitBtn" disabled={disableButton} label="Register" onClick={this._registerUser} fullWidth={true} primary={true} />
       </CardActions>
+
+      <Snackbar ref='snackbar' message={snackbarMsg} autoHideDuration={750} action="Ok" onActionTouchTap={this._dismissSnackbar} />
     </div>);
   },
   _registerUser(e) {
-    let {
-      username,
-      email,
-      password
-    } = this.refs;
+    if (this._checkEmailMatch || this._validatePassword) {
+      this.setState({ isRegistering: true });
 
-    let user = {
-      username: username.getValue().replace(/^\s*|\s*$/g, ""),
-      email: email.getValue().replace(/^\s*|\s*$/g, ""),
-      password: password.getValue()
-    };
+      let {
+        username,
+        email,
+        password
+      } = this.refs;
 
-    console.log(user);
+      let user = {
+        username: username.getValue().replace(/^\s*|\s*$/g, ""),
+        email: email.getValue().replace(/^\s*|\s*$/g, ""),
+        password: password.getValue()
+      };
+
+      Accounts.createUser(user, (err, res) => {
+        if (err) {
+          this.setState({ isRegistering: true });
+          this.setState({ snackbarMsg: err.message });
+          this.refs.snackbar.show()
+        } else {
+          // TODO redirect based on location params
+          FlowRouter.go('/');
+        }
+      });
+    } else {
+      return;
+    }
+
+
   },
   _validateUsername() {
     var username = this.refs.username.getValue();
@@ -137,5 +164,8 @@ RegisterForm = React.createClass({
       return true;
     }
     return false;
+  },
+  _dismissSnackbar() {
+    this.refs.snackbar.dismiss();
   }
 });
