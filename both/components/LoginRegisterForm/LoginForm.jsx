@@ -24,6 +24,9 @@ LoginForm = React.createClass({
     let newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
     this.setState({ muiTheme: newMuiTheme });
   },
+  componentDidMount() {
+    this.refs.username.focus();
+  },
   render() {
     let {
       usernameErrTxt,
