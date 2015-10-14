@@ -45,7 +45,7 @@ RegisterForm = React.createClass({
       disableButton = true;
 
     return (<div>
-        <CardText>
+      <CardText>
         <div className="row">
           <div className="col-xs-12">
             <TextField ref="username" fullWidth={true} errorText={usernameErrTxt} onBlur={this._validateUsername} floatingLabelText="Username" type="text" />
@@ -68,18 +68,19 @@ RegisterForm = React.createClass({
         <RaisedButton ref="submitBtn" disabled={disableButton} label="Register" onClick={this._registerUser} fullWidth={true} primary={true} />
       </CardActions>
 
-      <Snackbar ref='snackbar' message={snackbarMsg} autoHideDuration={750} action="Ok" onActionTouchTap={this._dismissSnackbar} />
+      <Snackbar ref='snackbar' message={snackbarMsg} autoHideDuration={2500} action="Ok" onActionTouchTap={this._dismissSnackbar} />
     </div>);
   },
   _registerUser(e) {
-    if (this._checkEmailMatch || this._validatePassword) {
-      this.setState({ isRegistering: true });
+    let {
+      username,
+      email,
+      password,
+      snackbar
+    } = this.refs;
 
-      let {
-        username,
-        email,
-        password
-      } = this.refs;
+    if (this._checkEmailMatch && this._validatePassword && username.getValue().length >= 3 && email.getValue() && email.getValue().indexOf('@') !== -1) {
+      this.setState({ isRegistering: true });
 
       let user = {
         username: username.getValue().replace(/^\s*|\s*$/g, ""),
@@ -87,11 +88,11 @@ RegisterForm = React.createClass({
         password: password.getValue()
       };
 
-      Accounts.createUser(user, (err, res) => {
+      Accounts.createUser(user, err => {
         if (err) {
-          this.setState({ isRegistering: true });
+          this.setState({ isRegistering: false });
           this.setState({ snackbarMsg: err.message });
-          this.refs.snackbar.show()
+          snackbar.show()
         } else {
           // TODO redirect based on location params
           FlowRouter.go('/');
@@ -100,8 +101,6 @@ RegisterForm = React.createClass({
     } else {
       return;
     }
-
-
   },
   _validateUsername() {
     var username = this.refs.username.getValue();

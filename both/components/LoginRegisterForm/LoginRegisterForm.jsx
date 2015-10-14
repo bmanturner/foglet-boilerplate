@@ -34,7 +34,7 @@ LoginRegisterForm = React.createClass({
     let loginForm = this.state.registerNewUser ? '' : <LoginForm />;
 
     if (this.data.currentUser) {
-      return <p>You are already logged in</p>
+      return <div><p>You are logged in.</p> <FlatButton primary={true} onTouchTap={this._logout}>Sign out</FlatButton></div>
     } else {
       return (
         <Card>
@@ -59,5 +59,8 @@ LoginRegisterForm = React.createClass({
     if (!this.state.registerNewUser) {
       this.setState({ registerNewUser: true });
     }
+  },
+  _logout() {
+    Meteor.logout();
   }
 });
